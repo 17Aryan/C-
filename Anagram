@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    string s="abC";
+    string s1="Bac";
+    transform(s.begin(),s.end(),s.begin(), ::tolower);
+    cout<<s<<endl;
+    transform(s1.begin(),s1.end(),s1.begin(), ::tolower);
+    cout<<s1<<endl;
+    if(s.length()==s1.length())
+    {
+        sort(s.begin(), s.end());
+        sort(s1.begin(), s1.end());
+        
+        cout<<s<<endl;
+        cout<<s1;
+        if(s==s1)
+            cout<<"\nAnagram";
+        else 
+            cout<<"Not an Anagram";
+    }
+    else
+        exit(0);
+    return 0;
+}
