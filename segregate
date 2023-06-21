@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void segregat(int arr[],int size){
+    int l=0,r=size-1;
+    
+    while(l<r){
+        
+        while(arr[l]==0&&l<r)
+            l++;
+        while(arr[r]==1&&l<r)
+            r--;
+        if(l<r){
+            arr[l]=0;
+            arr[r]=1;
+            l++;
+            r--;
+        }
+    }
+    cout<<arr;
+}
+
+int main()
+{
+    arr[]={0,1,1,0,1,0,1,0};
+    
+    int size=sizeof(arr)/sizeof(arr[0]);
+    segregat(arr,size);
+    return 0;
+}
