@@ -1,0 +1,60 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+class Node{
+    public:
+    int data;
+    
+    Node* ptr;
+};
+
+void rotate(Node** head_ref,int k){
+    if(k==0)
+        return;
+    Node* curr=*head_ref;
+    int c=1;
+    while(c<k&&curr!=NULL){
+        curr=curr->ptr;
+        c++;
+    }
+    if(curr==NULL){
+        return;
+    }
+    Node* knode=curr;
+    while(curr->ptr!=NULL)
+        curr=curr->ptr;
+    curr->ptr=*head_ref;
+    *head_ref=knode->ptr;
+    knode->ptr=NULL;
+    
+}
+void push(Node** head_ref,int new_data){
+    Node* new_node=new Node();
+    new_node->data=new_data;
+    new_node->ptr=(*head_ref);
+    (*head_ref)=new_node;
+}
+void printt(Node* node){
+    while(node!=NULL){
+        cout<<node->data<<" ";
+        node=node->ptr;
+    }
+}
+
+int main()
+{
+    
+    int k;
+    cin>>k;
+    
+    Node* head=NULL;
+    
+    for(int i=60;i>0;i-=10)
+        push(&head,i);
+    cout<<"Linked List\n";
+    printt(head);
+    rotate(&head, k);
+    cout<<"Rotated\n";
+    printt(head);
+    return 0;
+}
