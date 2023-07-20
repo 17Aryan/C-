@@ -1,0 +1,33 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+char hill(string s){
+    int a[5]={0};
+    char result,result1;
+    int max=0;
+    int min=1;
+    int l=s.length();
+    for(int i=0;i<l;i++){
+        a[s[i]]++;
+        if(max<a[s[i]]){
+            
+            max=a[s[i]];
+            result=s[i];
+        }
+        // if(min==a[s[i]]){
+        //     result1=s[i];
+        // }
+        
+        
+    }
+    cout<<"Minimum ="<<result1<<endl;
+    return result;
+}
+
+int main(){
+    string s;
+    cin>>s;
+    char c=hill(s);
+    cout<<"Maximum Occurance of Character ="<<c;
+    return 0;
+}
